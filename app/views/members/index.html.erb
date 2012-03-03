@@ -1,0 +1,23 @@
+<h1>AKB48 メンバー一覧</h1>
+
+<table border="1">
+  <tr bgcolor="#ffcccc">
+    <th>所属チーム</th>
+    <th>氏名</th>
+    <th colspan="3">メニュー</th>
+  </tr>
+
+<% @members.each do |member| %>
+  <tr>
+    <td><%= member.team %></td>
+    <td><%= member.name %></td>
+    <td><%= link_to '詳細', member %></td>
+    <td><%= link_to '編集', edit_member_path(member) %></td>
+    <td><%= link_to '削除', member, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'メンバー追加', new_member_path %>

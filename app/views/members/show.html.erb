@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p><h2>メンバー情報詳細</h2></p>
+<p>
+  <table>
+    <tr>
+      <th align="right">氏名:</th><td><%= @member.name %></td>
+    </tr>
+    <tr>
+      <th align="right">所属チーム:</th><td><%= @member.team %></td>
+    </tr>
+    <tr>
+      <th align="right">Google+:</th><td><a href="<%= @member.google_plus_link %>" target="_blank"><%= @member.google_plus_link %></a></td>
+    </tr>
+    <tr>
+      <th align="right">ブログ:</th><td><a href="<%= @member.blog %>" target="_blank"><%= @member.blog %></a></td>
+    </tr>
+    <tr>
+      <th align="right">Twitter:</th><td><a href="<%= @member.twitter_link %>" target="_blank"><%= @member.twitter_link %></td>
+    </tr>
+  </table>
+</p>
+
+<%= link_to '編集', edit_member_path(@member) %> |
+<%= link_to 'メンバー一覧', members_path %>

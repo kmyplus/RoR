@@ -1,0 +1,40 @@
+<%= form_for(@member) do |f| %>
+  <% if @member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@member.errors.count, "error") %> prohibited this member from being saved:</h2>
+
+      <ul>
+      <% @member.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <table>
+    <tr><th align="right">所属チーム</th>
+     <td><%= f.collection_select :team, Team.find(:all), :team_name, :team_name %></td>
+     </tr>
+     <tr>
+    <th align="right">氏名</th>
+    <td><%= f.text_field :name %></td>
+    </tr>
+     <tr>
+    <th align="right">Google+</th>
+    <td><%= f.text_field :google_plus_link %></td>
+    </tr>
+     <tr>
+    <th align="right">ブログ</th>
+    <td><%= f.text_field :blog %></td>
+    </tr>
+     <tr>
+    <th align="right">Twitter</th>
+    <td><%= f.text_field :twitter_link %></td>
+    </tr>
+    </table>
+  </div>
+  <div class="actions">
+    <%= f.submit "追加/変更" %>
+  </div>
+<% end %>
